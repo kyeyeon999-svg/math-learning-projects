@@ -1,0 +1,4 @@
+// 새 앱을 만들면 이 목록에 항목을 추가하세요. href는 실제 앱의 상대 경로입니다.
+export const apps = [{ id: 'alphabet', title: '알파벳 짝꿍 찾기', description: '대문자와 소문자, 같은 알파벳을 찾아 6쌍을 완성해요.', href: 'alphabet/index.html', art: 'A ↔ a · B ↔ b', badge: '영어 · 알파벳', action: '짝꿍 찾기 시작 ↗' }, { id: 'multiplication', title: '그림으로 배우는 구구단', description: '몇 개씩, 몇 묶음일까? 그림을 보며 곱셈을 발견해요.', href: 'multiplication/index.html', art: '● ● ●  ×  4', badge: '2학년 · 곱셈', action: '구구단 시작하기 ↗' }, { id: 'pdf-counter', title: 'PDF 글자 수 세기', description: '내 컴퓨터에서 안전하게, 공백 포함·제외 글자 수와 페이지별 결과를 확인해요.', href: 'pdf-counter/index.html', art: 'PDF → 가나다 123', badge: '문서 도구 · 로컬 처리', action: 'PDF 글자 수 세기 ↗' }];
+
+apps.push({id:'diary',title:'나의 일기장',description:'하루의 생각과 마음을 기록하고 내 컴퓨터에 간직해요.',href:'diary/index.html',art:'오늘의 한 페이지 ✎',badge:'일기 · 내 컴퓨터에 저장',action:'일기 쓰러 가기 ↗'});

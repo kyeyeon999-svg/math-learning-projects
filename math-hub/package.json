@@ -1,0 +1,1 @@
+{"private":true,"type":"module","engines":{"node":">=24"},"scripts":{"test":"node --test tests/*.test.js","test:offline":"node --test --test-skip-pattern=HTTP tests/*.test.js","build":"node ../build-public.cjs math-hub","start":"node server.cjs"}}

@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>알파벳 짝꿍 찾기</title><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="style.css"></head>
+<body class="learning"><a class="skip-link" href="#main">본문으로 건너뛰기</a><header><a class="brand" href="../index.html">← 허브로 돌아가기</a><span class="tag">영어 · 알파벳</span></header>
+<main id="main" class="lesson"><span class="eyebrow">Aa · Bb · Cc</span><h1>알파벳 짝꿍 찾기</h1><p>대문자 하나와 소문자 하나를 눌러 짝을 찾아요.<br>어느 쪽부터 골라도 괜찮아요!</p>
+<section class="panel" aria-label="알파벳 매칭 게임"><div class="scoreboard"><strong id="score">찾은 짝 0 / 6</strong><span id="attempts">도전 0번</span></div><progress id="progress" max="6" value="0" aria-label="찾은 알파벳 짝"></progress>
+<div class="board"><section><h2>대문자</h2><div id="upper" class="letters"></div></section><section><h2>소문자</h2><div id="lower" class="letters"></div></section></div>
+<p id="message" role="status" aria-live="polite" aria-atomic="true">같은 알파벳의 대문자와 소문자를 찾아보세요.</p><div class="actions"><button id="restart" class="primary" type="button">새 알파벳으로 시작</button></div><p class="note">시간 제한은 없어요. 키보드는 Tab으로 이동하고 Enter 또는 Space로 선택해요.</p></section></main>
+<script type="module" src="app.js"></script></body></html>
