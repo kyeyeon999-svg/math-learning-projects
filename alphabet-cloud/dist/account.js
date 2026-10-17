@@ -31,18 +31,18 @@ $('#auth-form').addEventListener('submit', async event => {
   event.preventDefault();
   const username = $('#username').value.trim().toLowerCase();
   const password = $('#password').value;
-  if (!/^[a-z0-9_]{3,24}$/.test(username)) return say('아이디는 영문 소문자·숫자·밑줄 3~24자로 적어 주세요.', true);
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(username)) return say('아이디에는 확인 메일을 받을 수 있는 이메일 주소를 적어 주세요.', true);
   if (password.length < 6 || password.length > 72) return say('비밀번호는 6~72자로 적어 주세요.', true);
   const signup = event.submitter?.id === 'signup';
   $('#auth-fields').disabled = true;
   say(signup ? '가입하고 있어요…' : '로그인하고 있어요…');
   try {
-    const email = `${username}@students.classroom.invalid`;
+    const email = username;
     const response = signup
-      ? await client.auth.signUp({ email, password, options: { data: { username } } })
+      ? await client.auth.signUp({ email, password, options: { data: { username: username.split('@')[0] }, emailRedirectTo: location.origin } })
       : await client.auth.signInWithPassword({ email, password });
     if (response.error) throw response.error;
-    if (!response.data.session) { say('가입을 완료하지 못했어요. 담당 교사에게 문의해 주세요.', true); return; }
+    if (!response.data.session) { $('#password').value = ''; say('가입 확인 메일을 확인해 주세요. 메일의 링크를 누른 뒤 이 화면에서 로그인하세요. 메일이 없다면 스팸함을 확인하거나 담당 교사에게 문의해 주세요.'); return; }
     user = response.data.user; generation++; pending = null;
     $('#password').value = ''; resetView();
     document.dispatchEvent(new CustomEvent('alphabet-new-session'));

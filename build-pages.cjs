@@ -12,7 +12,13 @@ async function buildPages(output = path.join(__dirname, 'pages-output')) {
     const url = new URL(href);
     if (url.protocol !== 'https:' || url.username || url.password) throw new Error('HTTPS app URL required');
     const app = apps.find(a => a.id === id);
-    if (app) app.href = href;
+    if (app) {
+      app.href = href;
+      if (id === 'alphabet') {
+        app.description = '이메일 아이디로 로그인하고, 알파벳 6쌍을 완성한 학습 기록을 모아요.';
+        app.badge = '영어 · 로그인과 학습 기록';
+      }
+    }
     else if (id === 'diary') apps.push({ id, title: '나의 일기장', description: 'Google 계정으로 로그인하고 나의 하루를 안전하게 기록해요.', href, art: '오늘의 한 페이지 ✎', badge: '일기 · Google 로그인', action: '일기 쓰러 가기 ↗' });
   }
   fs.writeFileSync(registry, 'export const apps = ' + JSON.stringify(apps) + ';\n');
